@@ -56,10 +56,8 @@
             'Συ μ΄εκανες να πέρπατω',
             'Όσοι έχουνε πολλά λεφτά',
             'Σε γελάσανε'                  
-        ]; // (line - 10)
-
-
-        console.log(songs.length-1);
+        ]; 
+        console.log(songs.length);
 
 /**
  * @fileoverview scrolls.js - smooth scrolling library.
@@ -177,129 +175,8 @@
  try {
    module.exports = exports = scrolls;
  } catch (e) {}
-
-
-
- //////////////////////////////////////////
-//  (function($) {
-  
-//   var defaults = {
-//     'swipeTolerance': 40
-//   };
-  
-//   var touchStatus = function(target, touch) {
-//     this.target    = $(target);
-//     this.touch     = touch;
-//     this.startX    = this.currentX = touch.screenX;
-//     this.startY    = this.currentY = touch.screenY;
-//     this.eventType = null;
-//   }
-//   touchStatus.options = {};
-//   touchStatus.latestTap = null;
-
-//   touchStatus.prototype.move = function(touch) {
-//     this.currentX = touch.screenX;
-//     this.currentY = touch.screenY;
-//   }
-
-//   touchStatus.prototype.process = function() {
-//     var offsetX = this.currentX - this.startX;
-//     var offsetY = this.currentY - this.startY;
-//     if(offsetX == 0 && offsetY == 0) {
-//       this.checkForDoubleTap();
-//     } else if(Math.abs(offsetY) > touchStatus.options.swipeTolerance && Math.abs(offsetY) > Math.abs(offsetX)) {
-//       this.eventType = offsetY > 0 ? 'swipedown' : 'swipeup';
-//       this.target.trigger('swipe', [this])
-//     } else if(Math.abs(offsetX) > touchStatus.options.swipeTolerance) {
-//       this.eventType = offsetX > 0 ? 'swiperight' : 'swipeleft';
-//       this.target.trigger('swipe', [this])
-//     }
-//     if(this.eventType) this.target.trigger(this.eventType, [this])
-//     this.target.trigger('touch',        [this])
-//   }
-
-//   touchStatus.prototype.checkForDoubleTap = function() {
-//     if(touchStatus.latestTap) {
-//       if((new Date() - touchStatus.latestTap) < 400) 
-//         this.eventType = 'doubletap'
-//     }
-//     if(!this.eventType) this.eventType = 'tap'
-//     touchStatus.latestTap = new Date()
-//   }
-
-//   var swipeEvents = function(elements, options) {
-//     touchStatus.options = $.extend(defaults, options);
-//     elements.bind('touchstart',  this.touchStart);
-//     elements.bind('touchmove',   this.touchMove);
-//     elements.bind('touchcancel', this.touchCancel);
-//     elements.bind('touchend',    this.touchEnd);
-//   }
-
-//   swipeEvents.prototype.touchStart = function(evt) {
-//     var target = this;
-//     swipeEvents.eachTouch(evt, function(touch) {
-//       swipeEvents.touches[touch.identifier] = new touchStatus(target, touch);
-//     })
-//   }
-
-//   swipeEvents.prototype.touchMove = function(evt) {
-//     swipeEvents.eachTouch(evt, function(touch) {
-//       var loc = swipeEvents.touches[touch.identifier]
-//       if(loc) loc.move(touch)
-//     })
-//   }
-
-//   swipeEvents.prototype.touchCancel = function(evt) {
-//     swipeEvents.eachTouch(evt, function(touch) {
-//       swipeEvents.purge(touch, true)
-//     })
-//   }
-
-//   swipeEvents.prototype.touchEnd = function(evt) {
-//     swipeEvents.eachTouch(evt, function(touch) {
-//       swipeEvents.purge(touch)
-//     })
-//   }
-
-//   swipeEvents.touches = {}
-//   swipeEvents.purge = function(touch, cancelled) {
-//     if(!cancelled) {
-//       var loc = swipeEvents.touches[touch.identifier]
-//       if(loc) loc.process()
-//     }
-//     delete swipeEvents.touches[touch.identifier]
-//   }
-
-//   swipeEvents.eachTouch = function(evt, callback) {
-//     var evt = evt.originalEvent;
-//     var num = evt.changedTouches.length;
-//     for(var i = 0; i < num; i++) {
-//       callback(evt.changedTouches[i])
-//     }
-//   }
-
-//   // adds custom events:
-//   //   touch      // all events
-//   //   swipe      // only swipe* events
-//   //   swipeleft
-//   //   swiperight
-//   //   swipeup
-//   //   swipedown
-//   //   tap
-//   //   doubletap
-//   $.fn.addSwipeEvents = function(options, callback) { 
-//     if (!callback && jQuery.isFunction(options)) {
-//       callback = options;
-//       options = null;
-//     }
-//     new swipeEvents(this, options);
-//     if(callback) this.bind('touch', callback);
-//     return this;
-//   }
-// })(jQuery);
-
-
-    </script>
+ 
+</script>
     <style>
         body {
             overflow: hidden;
@@ -323,31 +200,17 @@
         h2 {
             text-shadow: 2px 2px 2px #1a0808be;
         }        
-        h1 {
-            /* background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif); */
-            /* https://giphy.com/embed/YgQaPxx8t5eHAqUwjN/video */
-            /* background-size: cover;
-            color: transparent; */
-            /* -moz-background-clip: text;
-            -webkit-background-clip: text; */
-            /* text-transform: uppercase; */
-            /* font-size: 120px; */
+        h1 {            
             line-height: .85;
             margin: 10px 0;            
         }
         .cheat {
             background-size: cover;
             color: transparent;
-            /* https://media4.giphy.com/media/FupCCQnyHOCSUEueed/giphy.gif?cid=ecf05e47v5x8agyu3lv2zcb7oxz2mbjolg2sp8jdwg1bhs40&rid=giphy.gif&ct=g */
-            /* background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif); */
-            /* https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif */
-            /* background-image: url(https://c.tenor.com/7O_b7XHfOroAAAAC/rainbow-scroll.gif); */
-            background-image: url(https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif);
-            
+            /* https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif  https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif  https://c.tenor.com/7O_b7XHfOroAAAAC/rainbow-scroll.gif */
+            background-image: url(https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif);            
             -moz-background-clip: text;
-            -webkit-background-clip: text;
-            /* text-transform: uppercase; */
-            /* font-size: 120px; */
+            -webkit-background-clip: text;            
             line-height: .85;
             margin: 10px 0; 
         }
@@ -357,31 +220,21 @@
                     0 3px 0 #777777, 0 4px 0 #666666,
                     0 5px 0 #555555, 0 6px 0 #444444,
                     0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
-                    0 9px 10px rgba(0, 0, 0, 0.2);
+                    0 9px 10px #00000033;
         }
+ 
     </style>
 
     <div>
-        
-        <ul id="songs" class="songs"></ul>
-        
+        <ul id="songs" class="songs"></ul>        
     </div>
     
     <script>
         let songlist = document.getElementById('songs');
-        let spinDuration = 4200;
+        let spinDuration = 4333;
         // Load Songs and Append to page        
-        function loadSongs() {
-            for(i=0;i<=songs.length - 1;i++) {
-                songlist.innerHTML += '<div><h1 id="i' + i + '" class="song threed">' + songs[i] +'</h1></div>';
-            }
-            // for(i=songs.length - 1;i>=0;i--) {
-            //     songlist.innerHTML += '<div><h2 class="song threed">' + songs[i] +'</h2></div>';
-            // }
-        }
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
-        }
+        function loadSongs() {for(i=0;i<=songs.length-1;i++){songlist.innerHTML += '<div><h1 id="i' + i + '" class="song threed">' + songs[i] +'</h1></div>';}}
+        function getRandomInt(max) {return Math.floor(Math.random() * max);}
 
         // Choose Song
         async function chooseSong() {
@@ -391,51 +244,27 @@
             let i = '#i' + chance;
             var song = document.getElementById('i' + chance);
 
-
-           
-
             scrolls(i,{
                 durationOfMovement: spinDuration
             },);
             //console.log(i);
-            setTimeout(() => {  callback(); }, spinDuration + 666);
+            setTimeout(() => {  callback(); }, spinDuration + 1111);
             function callback() {
                 song.classList.remove('threed');
-                song.classList.add('cheat');
+                song.classList.add('cheat');                
                 console.log(song.innerText);
             }
-
-
             return i;
         }        
-        
         loadSongs(); 
                 
     // SPACEBAR Event Listener    
-    window.onkeyup = function(event) {
-            let key = event.key.toUpperCase();
-            if ( key == ' ' ) {               
-                chooseSong();
-            } 
-        }
-    window.onclick = function(event) {
-        //chooseSong();        
-    }
-    window.ondblclick = function(event) {
-        chooseSong();        
-    }
-    // window.ontouchstart = function(event) {
-    //     chooseSong();
-    // }
-    window.ontouchend = function(event) {
-        chooseSong();
-    }
-
-    let lastOne = '#i' + (songs.length -1);    
-    
-    scrolls(lastOne,{
-                durationOfMovement: spinDuration
-            });
+    window.onkeyup = function(event) {let key = event.key.toUpperCase();
+            if ( key == ' ' ) {chooseSong();}}    
+    window.ondblclick = function(event) {chooseSong();}    
+    window.ontouchend = function(event) {chooseSong();}
+    let lastOne = '#i' + (songs.length -1); 
+    scrolls(lastOne,{durationOfMovement: spinDuration - 2345});
     </script>
 </body>
 </html>
