@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T3K Song Machine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     
 </head>
 <body><script> let songs = [
@@ -20,6 +23,8 @@
             'Τα ζηλιάρικα σου μάτια',
             'Ο πασατεμπάς',
             'Όλοι οι ρεμπέτες του ντουνιά',
+            'Καραβοτσακίσματα',
+            'Πέντε χρόνια δικασμένος',
             'Μπράβω σου πως με δουλεύεις',
             'Στην υπόγα',
             'Μου΄φαγες όλα τα δαχτυλίδια',
@@ -175,44 +180,176 @@
 
 
 
+ //////////////////////////////////////////
+//  (function($) {
+  
+//   var defaults = {
+//     'swipeTolerance': 40
+//   };
+  
+//   var touchStatus = function(target, touch) {
+//     this.target    = $(target);
+//     this.touch     = touch;
+//     this.startX    = this.currentX = touch.screenX;
+//     this.startY    = this.currentY = touch.screenY;
+//     this.eventType = null;
+//   }
+//   touchStatus.options = {};
+//   touchStatus.latestTap = null;
+
+//   touchStatus.prototype.move = function(touch) {
+//     this.currentX = touch.screenX;
+//     this.currentY = touch.screenY;
+//   }
+
+//   touchStatus.prototype.process = function() {
+//     var offsetX = this.currentX - this.startX;
+//     var offsetY = this.currentY - this.startY;
+//     if(offsetX == 0 && offsetY == 0) {
+//       this.checkForDoubleTap();
+//     } else if(Math.abs(offsetY) > touchStatus.options.swipeTolerance && Math.abs(offsetY) > Math.abs(offsetX)) {
+//       this.eventType = offsetY > 0 ? 'swipedown' : 'swipeup';
+//       this.target.trigger('swipe', [this])
+//     } else if(Math.abs(offsetX) > touchStatus.options.swipeTolerance) {
+//       this.eventType = offsetX > 0 ? 'swiperight' : 'swipeleft';
+//       this.target.trigger('swipe', [this])
+//     }
+//     if(this.eventType) this.target.trigger(this.eventType, [this])
+//     this.target.trigger('touch',        [this])
+//   }
+
+//   touchStatus.prototype.checkForDoubleTap = function() {
+//     if(touchStatus.latestTap) {
+//       if((new Date() - touchStatus.latestTap) < 400) 
+//         this.eventType = 'doubletap'
+//     }
+//     if(!this.eventType) this.eventType = 'tap'
+//     touchStatus.latestTap = new Date()
+//   }
+
+//   var swipeEvents = function(elements, options) {
+//     touchStatus.options = $.extend(defaults, options);
+//     elements.bind('touchstart',  this.touchStart);
+//     elements.bind('touchmove',   this.touchMove);
+//     elements.bind('touchcancel', this.touchCancel);
+//     elements.bind('touchend',    this.touchEnd);
+//   }
+
+//   swipeEvents.prototype.touchStart = function(evt) {
+//     var target = this;
+//     swipeEvents.eachTouch(evt, function(touch) {
+//       swipeEvents.touches[touch.identifier] = new touchStatus(target, touch);
+//     })
+//   }
+
+//   swipeEvents.prototype.touchMove = function(evt) {
+//     swipeEvents.eachTouch(evt, function(touch) {
+//       var loc = swipeEvents.touches[touch.identifier]
+//       if(loc) loc.move(touch)
+//     })
+//   }
+
+//   swipeEvents.prototype.touchCancel = function(evt) {
+//     swipeEvents.eachTouch(evt, function(touch) {
+//       swipeEvents.purge(touch, true)
+//     })
+//   }
+
+//   swipeEvents.prototype.touchEnd = function(evt) {
+//     swipeEvents.eachTouch(evt, function(touch) {
+//       swipeEvents.purge(touch)
+//     })
+//   }
+
+//   swipeEvents.touches = {}
+//   swipeEvents.purge = function(touch, cancelled) {
+//     if(!cancelled) {
+//       var loc = swipeEvents.touches[touch.identifier]
+//       if(loc) loc.process()
+//     }
+//     delete swipeEvents.touches[touch.identifier]
+//   }
+
+//   swipeEvents.eachTouch = function(evt, callback) {
+//     var evt = evt.originalEvent;
+//     var num = evt.changedTouches.length;
+//     for(var i = 0; i < num; i++) {
+//       callback(evt.changedTouches[i])
+//     }
+//   }
+
+//   // adds custom events:
+//   //   touch      // all events
+//   //   swipe      // only swipe* events
+//   //   swipeleft
+//   //   swiperight
+//   //   swipeup
+//   //   swipedown
+//   //   tap
+//   //   doubletap
+//   $.fn.addSwipeEvents = function(options, callback) { 
+//     if (!callback && jQuery.isFunction(options)) {
+//       callback = options;
+//       options = null;
+//     }
+//     new swipeEvents(this, options);
+//     if(callback) this.bind('touch', callback);
+//     return this;
+//   }
+// })(jQuery);
+
+
     </script>
     <style>
         body {
             overflow: hidden;
             transition: 500ms ease-in-out;
-            background-color: rgb(32, 32, 32);  
+            background-color: rgb(26,26,26);  
             cursor: grab;          
         }  
         .url {
             cursor: url(myBall.cur),auto;
-        }      
-        .up  {
-            background-color: rgb(32, 32, 32);
-            background-image: linear-gradient(#0000007d, rgba(32, 32, 32, 0));
-            height: 38vh;
-            width: 100vw;
-            position: fixed;
-            top: 0px;     
-            cursor: grab;       
-        }   
-        .down {
-            background-color: rgb(32, 32, 32);
-            background-image: linear-gradient(rgba(32, 32, 32, 0),#0000007d);
-            
-            height: 38vh;
-            width: 100vw;
-            position: fixed;
-            bottom: 0px;
-            cursor: grab;
-        }    
+        } 
         .song {
-            font-size:11vh;
+            font-family: 'Play', sans-serif;
+            font-size:14vh;
             text-align:center;
-            color:whitesmoke;
+            /* color:whitesmoke; */
             cursor: grabbing;
+            padding-top: 24%;
+            padding-bottom: 24%;
+            user-select: none;
         }
         h2 {
             text-shadow: 2px 2px 2px #1a0808be;
+        }        
+        h1 {
+            /* background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif); */
+            /* https://giphy.com/embed/YgQaPxx8t5eHAqUwjN/video */
+            /* background-size: cover;
+            color: transparent; */
+            /* -moz-background-clip: text;
+            -webkit-background-clip: text; */
+            /* text-transform: uppercase; */
+            /* font-size: 120px; */
+            line-height: .85;
+            margin: 10px 0;            
+        }
+        .cheat {
+            background-size: cover;
+            color: transparent;
+            /* https://media4.giphy.com/media/FupCCQnyHOCSUEueed/giphy.gif?cid=ecf05e47v5x8agyu3lv2zcb7oxz2mbjolg2sp8jdwg1bhs40&rid=giphy.gif&ct=g */
+            /* background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif); */
+            /* https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif */
+            /* background-image: url(https://c.tenor.com/7O_b7XHfOroAAAAC/rainbow-scroll.gif); */
+            background-image: url(https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif);
+            
+            -moz-background-clip: text;
+            -webkit-background-clip: text;
+            /* text-transform: uppercase; */
+            /* font-size: 120px; */
+            line-height: .85;
+            margin: 10px 0; 
         }
         .threed {
             color: #CCCCCC;
@@ -225,21 +362,22 @@
     </style>
 
     <div>
-        <div class="up"></div>
+        
         <ul id="songs" class="songs"></ul>
-        <div class="down"></div>
+        
     </div>
     
     <script>
         let songlist = document.getElementById('songs');
+        let spinDuration = 4200;
         // Load Songs and Append to page        
         function loadSongs() {
             for(i=0;i<=songs.length - 1;i++) {
-                songlist.innerHTML += '<div><h2 class="song threed">' + songs[i] +'</h2></div>';
+                songlist.innerHTML += '<div><h1 id="i' + i + '" class="song threed">' + songs[i] +'</h1></div>';
             }
-            for(i=songs.length - 1;i>=0;i--) {
-                songlist.innerHTML += '<div><h2 class="song threed">' + songs[i] +'</h2></div>';
-            }
+            // for(i=songs.length - 1;i>=0;i--) {
+            //     songlist.innerHTML += '<div><h2 class="song threed">' + songs[i] +'</h2></div>';
+            // }
         }
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
@@ -247,13 +385,27 @@
 
         // Choose Song
         async function chooseSong() {
-            let chance = getRandomInt(songs.length);
-            let chance2 = getRandomInt(songs.length);
-            let i = await chance + ((chance2 / 2) * (chance + 500)) + chance2;
+            let chance = await getRandomInt(songs.length);
+            //let chance2 = getRandomInt(songs.length);
+            //let i = await chance + ((chance2 / 2) * (chance + 500)) + chance2;
+            let i = '#i' + chance;
+            var song = document.getElementById('i' + chance);
+
+
+           
+
             scrolls(i,{
-                durationOfMovement: 3820
-            });
-            console.log(i);
+                durationOfMovement: spinDuration
+            },);
+            //console.log(i);
+            setTimeout(() => {  callback(); }, spinDuration + 666);
+            function callback() {
+                song.classList.remove('threed');
+                song.classList.add('cheat');
+                console.log(song.innerText);
+            }
+
+
             return i;
         }        
         
@@ -272,6 +424,18 @@
     window.ondblclick = function(event) {
         chooseSong();        
     }
+    // window.ontouchstart = function(event) {
+    //     chooseSong();
+    // }
+    window.ontouchend = function(event) {
+        chooseSong();
+    }
+
+    let lastOne = '#i' + (songs.length -1);    
+    
+    scrolls(lastOne,{
+                durationOfMovement: spinDuration
+            });
     </script>
 </body>
 </html>
