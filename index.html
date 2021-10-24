@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3K Song Machine</title>
+    <script src="/scroll.js"></script>
+</head>
+<body><script> let songs = [
+            'Που΄σουν μάγκα το χειμώνα',
+            'Ο χορός του σάκαινα',
+            'Το καπηλιό',
+            'Εγώ μάγκας φαινόμουνα',
+            'Τα μπλέ παράθυρα',
+            'Νόστιμο τρέλο μικρό μου',
+            'Ο πασατέμπος',
+            'Χαράματα η ώρα τρείς',
+            'Κλωστηρού',
+            'Τα ζηλιάρικα σου μάτια',
+            'Ο πασατεμπάς',
+            'Όλοι οι ρεμπέτες του ντουνιά',
+            'Μπράβω σου πως με δουλεύεις',
+            'Στην υπόγα',
+            'Μου΄φαγες όλα τα δαχτυλίδια',
+            'Μη μου λες γιατί ξεχνάω',
+            'Δε θέλω τα ματάκια σου',
+            'Πώς θα περάσει η βραδιά',
+            'Συννεφιασμένη Κυριακή',
+            'Πριν το χάραμα',
+            'Σαν απόκλυρος γυρίζω',
+            'Περασμένες μου αγάπες',
+            'Πολίτικο χασάπικο',
+            'Παρτίδες',
+            'Κάθε βράδυ πάντα λυπημένη',
+            'Τα καβουράκια',
+            'Εγω θέλω πριγκιπέσσα',
+            'Είπα να σβήσω τα παλιά',
+            'Ζούλα σε μια βάρκα μπήκα',
+            'Προύσα',
+            'Τρικαλινό ζειμπέκικο',
+            'Ψέυτη ντουνιά',
+            'Παλιόκαιρος',
+            'Πέντε μάγκες στον περαία',
+            'Σούρα και μαστούρα',
+            'Ένας μάγκας στο βοτανικό',
+            'Αθηναίησα',
+            'Μπουζούκι μου διπλόχορδο',
+            'Ο Μάρκος υπουργός',
+            'Μ΄εχεις μαγεμένο',
+            'Συ μ΄εκανες να πέρπατω',
+            'Όσοι έχουνε πολλά λεφτά',
+            'Σε γελάσανε'                  
+        ]; // (line - 10)
+
+
+        console.log(songs.length-1);
+    </script>
+    <style>
+        body {
+            overflow: hidden;
+            transition: 500ms ease-in-out;
+            background-color: rgb(32, 32, 32);  
+            cursor: grab;          
+        }  
+        .url {
+            cursor: url(myBall.cur),auto;
+        }      
+        .up  {
+            background-color: rgb(32, 32, 32);
+            background-image: linear-gradient(#0000007d, rgba(32, 32, 32, 0));
+            height: 41vh;
+            width: 100vw;
+            position: fixed;
+            top: 0px;     
+            cursor: grab;       
+        }   
+        .down {
+            background-color: rgb(32, 32, 32);
+            background-image: linear-gradient(rgba(32, 32, 32, 0),#0000007d);
+            
+            height: 41vh;
+            width: 100vw;
+            position: fixed;
+            bottom: 0px;
+            cursor: grab;
+        }    
+        .song {
+            font-size:11vh;
+            text-align:center;
+            color:whitesmoke;
+            cursor: grabbing;
+        }
+        h2 {
+            text-shadow: 2px 2px 2px #1a0808be;
+        }
+        .threed {
+            color: #CCCCCC;
+            text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+                    0 3px 0 #777777, 0 4px 0 #666666,
+                    0 5px 0 #555555, 0 6px 0 #444444,
+                    0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+                    0 9px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+    <div>
+        <div class="up"></div>
+        <ul id="songs" class="songs"></ul>
+        <div class="down"></div>
+    </div>
+    
+    <script>
+        let songlist = document.getElementById('songs');
+        // Load Songs and Append to page        
+        function loadSongs() {
+            for(i=0;i<=songs.length - 1;i++) {
+                songlist.innerHTML += '<div><h2 class="song threed">' + songs[i] +'</h2></div>';
+            }
+            for(i=songs.length - 1;i>=0;i--) {
+                songlist.innerHTML += '<div><h2 class="song threed">' + songs[i] +'</h2></div>';
+            }
+        }
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        // Choose Song
+        async function chooseSong() {
+            let chance = getRandomInt(songs.length);
+            let chance2 = getRandomInt(songs.length);
+            let i = await chance + ((chance2 / 2) * (chance + 500)) + chance2;
+            scrolls(i,{
+                durationOfMovement: 3820
+            });
+            console.log(i);
+            return i;
+        }        
+        
+        loadSongs(); 
+                
+    // SPACEBAR Event Listener    
+    window.onkeyup = function(event) {
+            let key = event.key.toUpperCase();
+            if ( key == ' ' ) {               
+                chooseSong();
+            } 
+        }
+    window.onclick = function(event) {
+        //chooseSong();        
+    }
+    window.ondblclick = function(event) {
+        chooseSong();        
+    }
+    </script>
+</body>
+</html>
