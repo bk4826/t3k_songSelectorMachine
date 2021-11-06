@@ -18,6 +18,7 @@
             'Τα μπλέ παράθυρα',
             'Νόστιμο τρέλο μικρό μου',
             'Ο πασατέμπος',
+            'Χατζηκυριάκειο',
             'Χαράματα η ώρα τρείς',
             'Κλωστηρού',
             'Τα ζηλιάρικα σου μάτια',
@@ -55,7 +56,8 @@
             'Μ΄εχεις μαγεμένο',
             'Συ μ΄εκανες να πέρπατω',
             'Όσοι έχουνε πολλά λεφτά',
-            'Σε γελάσανε'                  
+            'Σε γελάσανε',
+            'Οι θαλασσινοί'                  
         ]; 
         console.log(songs.length);
 
@@ -178,10 +180,12 @@
  
 </script>
     <style>
+      @media all and (orientation:landscape) {
+  /* Style adjustments for landscape mode goes here */
         body {
             overflow: hidden;
             transition: 500ms ease-in-out;
-            background-color: rgb(26,26,26);  
+            background-color: rgb(22,22,22);  
             cursor: grab;          
         }  
         .url {
@@ -189,7 +193,7 @@
         } 
         .song {
             font-family: 'Play', sans-serif;
-            font-size:14vh;
+            font-size:12vh;
             text-align:center;
             /* color:whitesmoke; */
             cursor: grabbing;
@@ -206,8 +210,13 @@
         }
         .cheat {
             background-size: cover;
-            color: transparent;
+            color: #2f3844;;
             /* https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif  https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif  https://c.tenor.com/7O_b7XHfOroAAAAC/rainbow-scroll.gif */
+            text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+                    0 3px 0 #777777, 0 4px 0 #666666,
+                    0 5px 0 #555555, 0 6px 0 #444444,
+                    0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+                    0 9px 10px #d30d0d33;
             background-image: url(https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif);            
             -moz-background-clip: text;
             -webkit-background-clip: text;            
@@ -215,14 +224,72 @@
             margin: 10px 0; 
         }
         .threed {
-            color: #CCCCCC;
+            color: #0d6eec;
             text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
                     0 3px 0 #777777, 0 4px 0 #666666,
                     0 5px 0 #555555, 0 6px 0 #444444,
                     0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
-                    0 9px 10px #00000033;
+                    0 9px 10px #d30d0d33;
         }
+      }  
  
+
+      @media all and (orientation:portrait) {
+/* Style adjustments for portrait mode goes here */
+body {
+            overflow: hidden;
+            transition: 500ms ease-in-out;
+            background-color: rgb(22,22,22);  
+            cursor: grab;          
+        }  
+        .url {
+            cursor: url(myBall.cur),auto;
+        } 
+        .song {
+            font-family: 'Play', sans-serif;
+            font-size:6vh;
+            text-align:center;
+            /* color:whitesmoke; */
+            cursor: grabbing;
+            padding-top: 70%;
+            padding-bottom: 60%;
+            user-select: none;
+        }
+        h2 {
+            text-shadow: 2px 2px 2px #1a0808be;
+        }        
+        h1 {            
+            line-height: .85;
+            margin: 10px 0;            
+        }
+        .cheat {
+            background-size: cover;
+            color: #2f3844;;
+            /* https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif  https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif  https://c.tenor.com/7O_b7XHfOroAAAAC/rainbow-scroll.gif */
+            text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+                    0 3px 0 #777777, 0 4px 0 #666666,
+                    0 5px 0 #555555, 0 6px 0 #444444,
+                    0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+                    0 9px 10px #d30d0d33;
+            background-image: url(https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif);            
+            -moz-background-clip: text;
+            -webkit-background-clip: text;            
+            line-height: .85;
+            margin: 10px 0; 
+        }
+        .threed {
+          color: #0d6eec;
+            text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+                    0 3px 0 #777777, 0 4px 0 #666666,
+                    0 5px 0 #555555, 0 6px 0 #444444,
+                    0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+                    0 9px 10px #d30d0d33;
+        }
+
+
+
+}
+
     </style>
 
     <div>
