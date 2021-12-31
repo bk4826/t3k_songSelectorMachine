@@ -57,7 +57,10 @@
             'Συ μ΄εκανες να πέρπατω',
             'Όσοι έχουνε πολλά λεφτά',
             'Σε γελάσανε',
-            'Οι θαλασσινοί'                  
+            'Οι θαλασσινοί',
+            'Πήρα τη στράτα κι έρχομαι',
+            'Το καφεδάκι',
+            'Παίξε Χρήστο το μπουζούκι'                  
         ]; 
         console.log(songs.length);
 
@@ -264,7 +267,8 @@ body {
         }
         .cheat {            
             background-size: cover;
-            color: #acacac;;
+            color: #2f3844;
+            /* color: #acacac;; */
             /* https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif  https://c.tenor.com/aV0h3VAHWUAAAAAd/gradient.gif  https://c.tenor.com/7O_b7XHfOroAAAAC/rainbow-scroll.gif */
             text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
                     0 3px 0 #777777, 0 4px 0 #666666,
@@ -299,7 +303,7 @@ body {
     <script>
         let spinCounter = 0;
         let songlist = document.getElementById('songs');
-        let spinDuration = 4333;
+        let spinDuration = 4444;
         // Load Songs and Append to page        
         function loadSongs() {for(i=0;i<=songs.length-1;i++){songlist.innerHTML += '<div><h1 id="i' + i + '" class="song threed">' + songs[i] +'</h1></div>';}}
         function getRandomInt(max) {return Math.floor(Math.random() * max);}
